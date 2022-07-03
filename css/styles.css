@@ -14,7 +14,8 @@
   --icon-color: #AFB1B8;
   --footer-icon-color: rgba(255, 255, 255, 0.1);
   --backdrop-color: rgba(0, 0, 0, 0.2);
-  --card-title-color:rgba(47, 48, 58, 0.8);
+  --card-title-color: rgba(47, 48, 58, 0.8);
+  --description-color: rgba(33, 150, 243, 0.9);
 
   --indent: 30px;
   --items: 4;
@@ -48,6 +49,7 @@ p {
 .link {
   text-decoration: none;
   color: inherit;
+  transition: color var(--animation-fast);
 }
 
 img {
@@ -132,6 +134,7 @@ address {
 
 .site-nav .item {
   margin-right: 50px;
+  position: relative;
 }
 
 .site-nav .item:last-child {
@@ -155,6 +158,18 @@ address {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+}
+
+.current::after {
+  position: absolute;
+  content: '';
+  display: block;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-text-color);
 }
 
 .auth-nav {
@@ -281,7 +296,7 @@ address {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   width: 528px;
   height: 581px;
   background-color: var(--bgc-color);
@@ -359,12 +374,12 @@ address {
   --items: 3;
 }
 
-.card-set-container{
+.card-set-container {
   position: relative;
   padding: 0;
 }
 
-.subtitle-container{
+.subtitle-container {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -376,11 +391,11 @@ address {
   height: 70px;
 }
 
-.card-subtitle{
-      line-height: 1.14;
-    text-align: center;
-       text-transform: uppercase;
-      color: var(--bgc-color);
+.card-subtitles {
+  line-height: 1.14;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--bgc-color);
 }
 
 /* Команда */
@@ -647,6 +662,8 @@ address {
   text-align: center;
   letter-spacing: 0.03em;
   border: none;
+  transition: box-shadow var(--animation-fast),
+    background-color var(--animation-fast), color var(--animation-fast);
 }
 
 .filter-btn:hover,
@@ -683,6 +700,7 @@ address {
 
 .card-link {
   display: block;
+  transition: box-shadow var(--animation-fast);
 }
 
 .card-link:hover,
@@ -690,4 +708,35 @@ address {
   background: var(--bgc-color);
   border: 1px solid var(--border-card-list);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
+
+.card-set-item .container-description {
+  position: relative;
+  overflow: hidden;
 }
+
+.text-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  padding: 63px 24px;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  overflow: auto;
+  transition: opacity var(--animation-fast), transform var(--animation-fast);
+  opacity: 0;
+
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--bgc-color);
+  background: var(--description-color);
+}
+
+.card-link:hover .text-description,
+.card-link:focus .text-description
+ {transform: translateY(0);
+  opacity: 1;
+  overflow: visible;
+ }
