@@ -49,8 +49,7 @@ p {
 .link {
   text-decoration: none;
   color: inherit;
-  transition: color var(--animation-fast);
-}
+  }
 
 img {
   display: block;
@@ -108,6 +107,7 @@ address {
 
 .nav-link {
   margin-right: 92px;
+  transition: color var(--animation-fast);
 
   color: var(--accent-text-color);
   font-family: Raleway;
@@ -145,6 +145,7 @@ address {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
+  transition: color var(--animation-fast);
 
   color: var(--title-text-color);
   font-weight: 500;
@@ -153,6 +154,8 @@ address {
 }
 
 .site-nav .current {
+  transition: color var(--animation-fast);
+
   color: var(--accent-text-color);
   font-weight: 500;
   line-height: 1.14;
@@ -176,6 +179,10 @@ address {
   display: flex;
 }
 
+.auth-nav .item{
+  transition: color var(--animation-fast);
+}
+
 .auth-nav .item:first-child {
   margin-right: 50px;
 }
@@ -186,6 +193,7 @@ address {
   align-items: center;
   padding-top: 32px;
   padding-bottom: 32px;
+  transition: color var(--animation-fast);
 
   color: var(--primery-text-color);
   font-weight: 500;
@@ -254,6 +262,7 @@ address {
   padding: 10px 32px;
   margin-left: auto;
   margin-right: auto;
+  transition: color var(--animation-fast), background-color var(--animation-fast);
 
   color: var(--bgc-color);
   background-color: var(--accent-text-color);
@@ -283,6 +292,7 @@ address {
 }
 
 .backdrop {
+  opacity: 1;
   position: fixed;
   left: 0;
   top: 0;
@@ -292,8 +302,13 @@ address {
   transition: opasity var(--animation-fast), visibility var(--animation-fast);
 }
 
+.backdrop.is-hidden .modal{
+  transform: scale(0.9);
+}
+
 .modal {
   position: absolute;
+  transition: transform var(--animation-fast);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
@@ -317,6 +332,7 @@ address {
   background: var(--bgc-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  transition: transform var(--animation-fast);
 }
 
 /* Особенности */
@@ -454,6 +470,7 @@ address {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  transition: color var(--animation-fast), background-color var(--animation-fast);
 
   background-color: var(--bgc-color);
   color: var(--icon-color);
@@ -503,6 +520,7 @@ address {
   line-height: 1.71;
   text-decoration: none;
   font-style: normal;
+  transition: color var(--animation-fast);
 }
 
 .box-mail {
@@ -510,6 +528,7 @@ address {
   line-height: 1.71;
   text-decoration: none;
   font-style: normal;
+  transition: color var(--animation-fast);
 }
 
 .box-tel {
@@ -517,6 +536,7 @@ address {
   line-height: 1.71;
   text-decoration: none;
   font-style: normal;
+  transition: color var(--animation-fast);
 }
 
 .box-mail:hover,
@@ -536,8 +556,8 @@ address {
 }
 
 .page-container {
-  flex-basis: 50%;
   width: 206px;
+  margin-right: 93px;
 }
 
 .page-title {
@@ -568,6 +588,7 @@ address {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  transition: color var(--animation-fast), background-color var(--animation-fast);
 
   color: var(--bgc-color);
   background-color: var(--footer-icon-color);
@@ -582,7 +603,57 @@ address {
   background-color: var(--accent-text-color);
 }
 
+.form-container {
+  width: 570px;
+}
 
+.form-field {
+  display: flex;
+}
+
+.form-field input {
+  width: 358px;
+  height: 50px;
+  margin-right: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  background-color: var(--background-color);
+}
+
+.form-field input::placeholder {
+  padding-left: 16px;
+  font-size: 16px;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  color: var(--mail-color);
+}
+
+.form-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  background-color: var(--accent-text-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  transition: var(--animation-fast);
+
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.88;
+
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: var(--bgc-color);
+}
+
+.text-btn {
+  margin-right: 10px;
+}
 
 /* Постоянные клиенты */
 
@@ -611,6 +682,7 @@ address {
   cursor: pointer;
   color: var(--icon-color);
   border: 1px solid var(--icon-color);
+transition: color var(--animation-fast);
 }
 
 .client-icon {
@@ -662,6 +734,8 @@ address {
   text-align: center;
   letter-spacing: 0.03em;
   border: none;
+  cursor: pointer;
+  border-radius: 4px;
   transition: box-shadow var(--animation-fast),
     background-color var(--animation-fast), color var(--animation-fast);
 }
@@ -672,10 +746,9 @@ address {
 .filter-button:focus {
   color: var(--bgc-color);
   background-color: var(--accent-text-color);
-  cursor: pointer;
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
+  
 }
 
 .card-container {
@@ -701,14 +774,14 @@ address {
 .card-link {
   display: block;
   transition: box-shadow var(--animation-fast);
+  background: var(--bgc-color);
+  border: 1px solid var(--border-card-list);
 }
 
 .card-link:hover,
 .card-link:focus {
-  background: var(--bgc-color);
-  border: 1px solid var(--border-card-list);
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-  }
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
 
 .card-set-item .container-description {
   position: relative;
@@ -735,8 +808,8 @@ address {
 }
 
 .card-link:hover .text-description,
-.card-link:focus .text-description
- {transform: translateY(0);
+.card-link:focus .text-description {
+  transform: translateY(0);
   opacity: 1;
   overflow: visible;
- }
+}
