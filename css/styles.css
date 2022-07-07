@@ -813,3 +813,34 @@ transition: color var(--animation-fast);
   opacity: 1;
   overflow: visible;
 }
+
+.form-modal{
+  display: block;
+flex-direction: column;
+padding: 40px;
+} 
+
+.label-name{
+  display: block;
+  width: 448px;
+  height: 50px;
+}
+
+.text-modal{
+  font-size: 20px;
+    line-height: 1.15;
+    text-align: center;
+        color: var(--title-text-color);
+}
+
+.text-form{
+  font-size: 12px;
+    line-height: 1.17;
+        letter-spacing: 0.01em;
+      color: var(--primery-text-color);
+}
+
+.comment-text{
+      line-height: 1.71;    
+    color: var(--primery-text-color);
+}
